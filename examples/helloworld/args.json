@@ -1,0 +1,7 @@
+[
+    {
+        "input": "examples/helloworld/main.go",
+        "output": "examples/helloworld/main.go.out",
+        "data": { "name": "World" }
+    }
+]
