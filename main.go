@@ -1,8 +1,8 @@
 package main
 
 import (
-	"com/github/tdd/tdd/internal/arguments"
-	"com/github/tdd/tdd/internal/template"
+	"com/github/template-driven-development/tdd/internal/arguments"
+	"com/github/template-driven-development/tdd/internal/template"
 	"log"
 	"os"
 )
