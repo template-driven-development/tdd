@@ -8,7 +8,9 @@ import (
 )
 
 func Process(args arguments.Arguments) {
-	tmpl, err := template.ParseFiles(args.Input)
+	text := Read(args.Input)
+
+	tmpl, err := template.New("template").Parse(text)
 	if err != nil {
 		log.Fatalf("failed to parse template: %v", err)
 	}
