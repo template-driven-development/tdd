@@ -7,7 +7,7 @@ import (
 	"os"
 )
 
-const usage = "Usage: go run <path-to-config>"
+const usage = "Usage: tdd <path-to-config>"
 
 func main() {
 	if len(os.Args) != 2 {
