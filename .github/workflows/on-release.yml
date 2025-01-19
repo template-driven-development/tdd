@@ -1,0 +1,44 @@
+name: On release
+
+on:
+  release:
+    types: [ created ]
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    strategy:
+      matrix:
+        include:
+          - { os: darwin, arch: amd64, ext: "" }
+          - { os: darwin, arch: arm64, ext: "" }
+          - { os: linux, arch: amd64, ext: "" }
+          - { os: linux, arch: arm64, ext: "" }
+          - { os: windows, arch: amd64, ext: ".exe" }
+
+    env:
+      asset: tdd-${{ matrix.os }}-${{ matrix.arch }}${{ matrix.ext }}
+
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v4
+        with:
+          go-version: '1.23'
+
+      - name: Build
+        run: GOOS=${{ matrix.os }} GOARCH=${{ matrix.arch }} go build -o ${{ env.asset }}
+
+      - name: Upload release asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ github.event.release.upload_url }}
+          asset_content_type: application/octet-stream
+          asset_name: ${{ env.asset }}
+          asset_path: ${{ env.asset }}
