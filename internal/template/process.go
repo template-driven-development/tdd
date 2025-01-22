@@ -10,7 +10,7 @@ import (
 func Process(args arguments.Arguments) {
 	text := Read(args.Input)
 
-	tmpl, err := template.New("template").Parse(text)
+	tmpl, err := template.New("template").Funcs(Functions).Parse(text)
 	if err != nil {
 		log.Fatalf("failed to parse template: %v", err)
 	}
