@@ -1,10 +1,11 @@
 package main
 
 import (
-	"com/github/template-driven-development/tdd/internal/arguments"
-	"com/github/template-driven-development/tdd/internal/template"
 	"log"
 	"os"
+
+	"github.com/template-driven-development/tdd/internal/arguments"
+	"github.com/template-driven-development/tdd/internal/template"
 )
 
 const usage = "Usage: tdd <path-to-config>"
