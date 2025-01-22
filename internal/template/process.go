@@ -1,10 +1,11 @@
 package template
 
 import (
-	"com/github/template-driven-development/tdd/internal/arguments"
 	"log"
 	"os"
 	"text/template"
+
+	"github.com/template-driven-development/tdd/internal/arguments"
 )
 
 func Process(args arguments.Arguments) {
