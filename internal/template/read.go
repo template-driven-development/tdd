@@ -49,6 +49,7 @@ func readCache(path string) string {
 		return ""
 	}
 
+	log.Printf("cache read successfully: %s, %s\n", path, cachePath)
 	return string(content)
 }
 
@@ -71,6 +72,8 @@ func writeCache(path, content string) {
 		log.Printf("error writing to cache file %s: %v\n", cachePath, err)
 		return
 	}
+
+	log.Printf("cache written successfully: %s, %s\n", path, cachePath)
 }
 
 func isRemote(path string) bool {
@@ -93,6 +96,7 @@ func readRemote(url string) string {
 		log.Fatalf("error reading template response: %v", err)
 	}
 
+	log.Printf("remote read successfully: %s\n", url)
 	return string(body)
 }
 
@@ -102,5 +106,6 @@ func readLocal(path string) string {
 		log.Fatalf("error reading local template file %s: %v", path, err)
 	}
 
+	log.Printf("local read successfully: %s\n", path)
 	return string(content)
 }

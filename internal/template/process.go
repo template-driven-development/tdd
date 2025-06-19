@@ -25,4 +25,6 @@ func Process(args arguments.Arguments) {
 	if err := tmpl.Execute(outputFile, args.Data); err != nil {
 		log.Fatalf("failed to execute template: %v", err)
 	}
+
+	log.Printf("template written successfully: %s\n", args.Output)
 }
