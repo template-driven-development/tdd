@@ -11,17 +11,16 @@ import (
 )
 
 func Read(path string) string {
+	if !isRemote(path) {
+		return readLocal(path)
+	}
+
 	content := readCache(path)
 	if content != "" {
 		return content
 	}
 
-	if isRemote(path) {
-		content = readRemote(path)
-	} else {
-		content = readLocal(path)
-	}
-
+	content = readRemote(path)
 	writeCache(path, content)
 
 	return content
