@@ -29,7 +29,7 @@ func Read(path string) string {
 func cachePath(path string) string {
 	userCacheDir, err := os.UserCacheDir()
 	if err != nil {
-		log.Printf("error getting user cache directory: %v", err)
+		log.Printf("error getting user cache directory: %v\n", err)
 		return ""
 	}
 
@@ -62,12 +62,14 @@ func writeCache(path, content string) {
 
 	err := os.MkdirAll(cacheDir, os.ModePerm)
 	if err != nil {
-		log.Fatalf("error creating cache directory %s: %v", cacheDir, err)
+		log.Printf("error creating cache directory %s: %v\n", cacheDir, err)
+		return
 	}
 
 	err = os.WriteFile(cachePath, []byte(content), 0644)
 	if err != nil {
-		log.Fatalf("error writing to cache file %s: %v", cachePath, err)
+		log.Printf("error writing to cache file %s: %v\n", cachePath, err)
+		return
 	}
 }
 
