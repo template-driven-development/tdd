@@ -1,0 +1,7 @@
+[
+    {
+        "input": "examples/helloworld/template.in.go",
+        "output": "examples/helloworld/template.out.go",
+        "data": { "name": "World" }
+    }
+]

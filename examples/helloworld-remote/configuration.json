@@ -1,0 +1,7 @@
+[
+    {
+        "input": "https://raw.githubusercontent.com/template-driven-development/tdd/refs/heads/main/examples/helloworld/template.in.go",
+        "output": "examples/helloworld/template.out.go",
+        "data": { "name": "World" }
+    }
+]

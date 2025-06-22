@@ -1,3 +1,9 @@
+{{/*
+Go "Hello, World!" template
+
+Expected Data:
+- name: string
+*/}}
 package main
 
 import (
